@@ -12,7 +12,9 @@ class NrelService
       req.params['radius'] = 6
       req.params['fuel_type'] = 'ELEC,LPG'
       req.params['api_key'] = key
+      binding.pry
     end
+    binding.pry
     parse_it(response.body)
   end
 

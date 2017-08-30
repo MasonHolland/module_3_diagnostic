@@ -5,11 +5,15 @@ class StationResult
     @nrel = NrelService.new(zip)
   end
 
-  def stations
-    binding.pry
-    stations_search.each do |station|
-      binding.pry
+  def stations_creation
+    stations = stations_search["fuel_stations"].map do |station|
+      Station.new(station["station_name"],
+                  "#{station["street_address"]}, #{station["city"]}, #{station["state"]}, #{station["zip"]}",
+                  station["fuel_type_code"],
+                  station["access_days_time"]
+                  )
     end
+    stations
   end
 
   def stations_search
