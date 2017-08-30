@@ -8,7 +8,7 @@ class NrelService
   def locate_stations
     response = conn.get do |req|
       req.params['limit'] = 10
-      req.params['location'] = zip
+      req.params['zip'] = zip
       req.params['radius'] = 6
       req.params['fuel_type'] = 'ELEC,LPG'
       req.params['api_key'] = key
